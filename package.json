@@ -1,0 +1,100 @@
+{
+  "name": "paste-upload-image",
+  "displayName": "paste-upload-image",
+  "description": "upload image to github when edit markdown",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+     "configuration": {
+      "type": "object",
+      "title": "Paste&Upload Image Configuration",
+      "properties": {
+        "pasteUploadImage.token": {
+          "type": "string",
+          "default": "",
+          "description": "your github personal access tokens"
+        },
+        "pasteUploadImage.owner": {
+          "type": "string",
+          "default": "",
+          "description": "your github owner name"
+        },
+        "pasteUploadImage.repository": {
+          "type": "string",
+          "default": "",
+          "description": "repository which you want to upload"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.paste-upload-image",
+        "title": "Paste and Upload Image"
+      },
+      {
+        "command": "extension.scan-upload-image",
+        "title": "扫描并上传图片"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.paste-upload-image",
+        "key": "ctrl+alt+v",
+        "mac": "cmd+ctrl+v",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.scan-upload-image",
+        "key": "ctrl+alt+u",
+        "mac": "cmd+ctrl+u",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+        "editor/context": [{
+            "when": "resourceLangId == markdown",
+            "command": "extension.scan-upload-image",
+            "alt": "extension.scan-upload-image",
+            "group": "2_workspace"
+        }]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.83.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-electron": "^2.3.4"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}
