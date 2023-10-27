@@ -6,7 +6,7 @@
 ### 配置github参数
 使用本插件需要先到github获取你的Personal access tokens，该token用于提交图片到指定的仓库。
 获取到token后，请先配置github提交的配置：
-![](./configuration.png)
+![](https://raw.githubusercontent.com/chens01/vscode-parse-upload-image/main/image-2.png)
 配置包括github的token，仓库所有者的名称owner(github的用户名)和目标仓库名。具体可以参考github的API：https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents
 
 ### 粘贴并上传图片
