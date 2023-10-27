@@ -14,7 +14,7 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-     "configuration": {
+    "configuration": {
       "type": "object",
       "title": "Paste&Upload Image Configuration",
       "properties": {
@@ -60,12 +60,14 @@
       }
     ],
     "menus": {
-        "editor/context": [{
-            "when": "resourceLangId == markdown",
-            "command": "extension.scan-upload-image",
-            "alt": "extension.scan-upload-image",
-            "group": "2_workspace"
-        }]
+      "editor/context": [
+        {
+          "when": "resourceLangId == markdown",
+          "command": "extension.scan-upload-image",
+          "alt": "extension.scan-upload-image",
+          "group": "2_workspace"
+        }
+      ]
     }
   },
   "scripts": {
@@ -80,7 +82,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.83.0",
+    "@types/vscode": "^1.82.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
