@@ -25,4 +25,4 @@
 或者菜单功能：“扫描并上传图片” 来使用功能
 
 ## 许可证
-源代码和字符串使用[MIT](https://github.com/Microsoft/vscode-loc/blob/main/LICENSE.md)许可进行授权。
+源代码和字符串使用[MIT](https://raw.githubusercontent.com/chens01/vscode-parse-upload-image/main/LICENSE.txt)许可进行授权。
