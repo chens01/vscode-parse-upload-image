@@ -30,7 +30,7 @@ console.log('editor.document =====> ', editor);
 
   const text = editor.document.getText();
 
-  const tags = [...text.matchAll(/\!\[\]\((.*)\)/g)];
+  const tags = [...text.matchAll(/\!\[.*\]\((.*)\)/g)];
   if (!tags.length) {
     return;
   }
@@ -49,7 +49,7 @@ console.log('editor.document =====> ', editor);
         const tag = tags[i];
         // 忽略远程链接
         if (/^((https|http|ftp|rtsp|mms)?:\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/.test(tag[1])) {
-          return;
+          continue;
         }
         const imgFullPath = path.join(fileDir, tag[1]);
         console.log('imgFullPath ====> ', imgFullPath);
